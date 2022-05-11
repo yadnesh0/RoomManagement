@@ -15,23 +15,23 @@ import com.room.management.repository.RoomDetailsRepository;
 public class RoomDetailsController {
 	@Autowired
 	RoomDetailsRepository roomDetailsRepository;
-	@GetMapping("/rooms")
+	@GetMapping("/room")
 	private List<RoomDetails> getAllRoomDetails(){
 		return this.roomDetailsRepository.showAllRoomDetails();
 	}
-	@GetMapping("/rooms/{room_id}")
+	@GetMapping("/room/{room_id}")
 	private RoomDetails getRoomById(@PathVariable("room_id") String id) {
 		return this.roomDetailsRepository.showRoomDetails(Integer.parseInt(id));
 	}
-	@DeleteMapping("/rooms/{room_id}")
+	@DeleteMapping("/room/{room_id}")
 	private void deleteRoomDetails(@PathVariable("room_id") String id) {
 	roomDetailsRepository.removeRoomDetails(Integer.parseInt(id));
 	}
-	@PostMapping("/rooms")
+	@PostMapping("/room")
 	private RoomDetails addRoomDetails(@RequestBody RoomDetails r){
 		return this.roomDetailsRepository.addRoomDetails(r);
 	}
-	@PutMapping("/rooms")
+	@PutMapping("/room")
 	private RoomDetails updateRoomDetails(@RequestBody RoomDetails r) {
 		return this.roomDetailsRepository.updateRoomDetails(r);
 	}
