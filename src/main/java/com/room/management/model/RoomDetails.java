@@ -6,6 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class RoomDetails {
 	@Id
+	@Column(name = "room_id")
 	private int room_id;
 	private int hotel_id;
 	private String room_no;
